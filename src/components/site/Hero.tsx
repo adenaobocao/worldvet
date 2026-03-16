@@ -55,19 +55,21 @@ export default function Hero() {
 
               {/* CTAs principais */}
               <div className="flex flex-wrap gap-3 mb-10">
-                <button
-                  onClick={() => openScheduler("consulta")}
+                <a
+                  href={WHATSAPP_LINKS.schedule}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 px-6 py-4 bg-[#a8c941] hover:bg-[#bdd84e] text-[#001020] font-bold rounded-2xl transition-all text-sm tracking-wide shadow-[0_0_40px_rgba(168,201,65,0.25)] hover:shadow-[0_0_60px_rgba(168,201,65,0.4)]"
                 >
                   <Calendar size={17} />
                   Agendar Consulta
-                </button>
+                </a>
                 <button
                   onClick={() => openScheduler("banho-tosa")}
                   className="inline-flex items-center gap-2.5 px-6 py-4 bg-white/[0.08] hover:bg-white/[0.14] text-white font-bold rounded-2xl transition-all text-sm border border-[#a8c941]/30 hover:border-[#a8c941]/60"
                 >
                   <Bath size={16} />
-                  Agendar Banho
+                  Banho/Tosa
                 </button>
                 <a
                   href={WHATSAPP_LINKS.urgency}
