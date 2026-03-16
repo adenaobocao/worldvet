@@ -93,13 +93,13 @@ export default function Footer() {
           <p className="text-white/40 text-xs">
             {DOCTOR.name} — {DOCTOR.crmv}
           </p>
-          {/* Acesso profissional — discreto */}
+          {/* Acesso da equipe */}
           <Link
             href="/login"
-            className="text-white/10 hover:text-white/30 transition-colors p-1 rounded-lg"
-            title="Acesso profissional"
+            className="flex items-center gap-1.5 text-white/20 hover:text-white/50 transition-colors text-xs"
           >
-            <Moon size={14} />
+            <Moon size={13} />
+            Área da equipe
           </Link>
         </div>
       </div>
