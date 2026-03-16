@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const credentials = [
   { label: "Registro profissional", value: "CRMV-PR 18808", sub: "Paraná" },
-  { label: "Área de atuação", value: "Tecidos moles & Ortopedia", sub: "Alta complexidade" },
+  { label: "Área de atuação", value: "Clínica Geral e Cirurgia", sub: "Alta complexidade" },
 ];
 
 export default function DrMatheus() {
