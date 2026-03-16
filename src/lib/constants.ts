@@ -19,7 +19,7 @@ export const CLINIC = {
 };
 
 export const DOCTOR = {
-  name: "Dr. Matheus A. F. Martins",
+  name: "Dr. Matheus Martins",
   nameShort: "Dr. Matheus",
   crmv: "CRMV-PR 18808",
   title: "Médico Veterinário Especialista em Cirurgia",
