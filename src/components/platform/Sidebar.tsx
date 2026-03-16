@@ -13,6 +13,7 @@ import {
   Menu,
   X,
   ChevronRight,
+  UserCog,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +22,7 @@ const navItems = [
   { icon: PawPrint, label: "Pets", href: "/dashboard/pets" },
   { icon: Users, label: "Tutores", href: "/dashboard/tutors" },
   { icon: DollarSign, label: "Cobranças", href: "/dashboard/charges" },
+  { icon: UserCog, label: "Equipe", href: "/dashboard/team" },
   { icon: Settings, label: "Configurações", href: "/dashboard/settings" },
 ];
 
@@ -65,7 +67,7 @@ export default function Sidebar() {
         })}
       </nav>
 
-      {/* User */}
+      {/* Bottom */}
       <div className="px-3 pb-4 border-t border-white/10 pt-4">
         <Link
           href="/"

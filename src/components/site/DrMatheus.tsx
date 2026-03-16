@@ -3,7 +3,6 @@ import { DOCTOR, WHATSAPP_LINKS } from "@/lib/constants";
 import { ArrowRight } from "lucide-react";
 
 const credentials = [
-  { label: "Especialização", value: "Cirurgia Veterinária", sub: "ANCLIVEPA-SC" },
   { label: "Registro profissional", value: "CRMV-PR 18808", sub: "Paraná" },
   { label: "Área de atuação", value: "Tecidos moles & Ortopedia", sub: "Alta complexidade" },
 ];
@@ -23,9 +22,7 @@ export default function DrMatheus() {
               className="object-cover object-top"
               priority
             />
-            {/* Overlay lateral para transição com o texto */}
             <div className="hidden lg:block absolute inset-y-0 right-0 w-24 bg-gradient-to-r from-transparent to-[#f8faf5]" />
-            {/* Overlay inferior mobile */}
             <div className="lg:hidden absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#f8faf5] to-transparent" />
           </div>
 

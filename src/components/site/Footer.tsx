@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CLINIC, DOCTOR, WHATSAPP_LINKS } from "@/lib/constants";
-import { MapPin, Clock, Instagram, MessageCircle } from "lucide-react";
+import { MapPin, Clock, Instagram, MessageCircle, Moon } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -13,10 +13,6 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-12 relative flex-shrink-0">
                 <Image src="/logo.svg" alt="World Vet" fill className="object-contain" />
-              </div>
-              <div>
-                <p className="font-bold text-[#a8c941] text-lg leading-tight">World Vet</p>
-                <p className="text-white/60 text-xs">Clínica Veterinária</p>
               </div>
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-4">
@@ -97,6 +93,14 @@ export default function Footer() {
           <p className="text-white/40 text-xs">
             {DOCTOR.name} — {DOCTOR.crmv}
           </p>
+          {/* Acesso profissional — discreto */}
+          <Link
+            href="/login"
+            className="text-white/10 hover:text-white/30 transition-colors p-1 rounded-lg"
+            title="Acesso profissional"
+          >
+            <Moon size={14} />
+          </Link>
         </div>
       </div>
     </footer>

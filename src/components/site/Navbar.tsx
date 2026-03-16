@@ -35,18 +35,10 @@ export default function Navbar() {
       <div className="max-w-[1200px] mx-auto px-8 lg:px-12">
         <div className="flex items-center justify-between h-[72px]">
 
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-8 h-12 relative">
+          {/* Logo only — sem texto */}
+          <Link href="/" className="flex items-center flex-shrink-0">
+            <div className="w-9 h-14 relative">
               <Image src="/logo.svg" alt="World Vet" fill className="object-contain" priority />
-            </div>
-            <div>
-              <p className={`font-bold text-sm tracking-tight leading-none transition-colors ${isScrolled ? "text-[#001020]" : "text-white"}`}>
-                World Vet
-              </p>
-              <p className="text-[#a8c941] text-[10px] font-semibold uppercase tracking-[0.15em] mt-0.5">
-                Piraí do Sul · PR
-              </p>
             </div>
           </Link>
 
@@ -92,7 +84,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile */}
+          {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className={`lg:hidden p-2 rounded-xl transition-colors ${isScrolled ? "text-[#001020]" : "text-white"}`}
