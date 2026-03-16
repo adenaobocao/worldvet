@@ -1,0 +1,134 @@
+// WorldVet - Schema do banco de dados
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Auth ─────────────────────────────────────────────
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  password      String
+  role          UserRole  @default(STAFF)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+enum UserRole {
+  ADMIN
+  STAFF
+  VET
+}
+
+// ─── Tutor ─────────────────────────────────────────────
+model Tutor {
+  id          String   @id @default(cuid())
+  name        String
+  cpf         String?  @unique
+  phone       String?
+  email       String?
+  address     String?
+  accessToken String   @unique @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  pets        Pet[]
+}
+
+// ─── Pet ───────────────────────────────────────────────
+model Pet {
+  id          String    @id @default(cuid())
+  name        String
+  species     String    // cachorro, gato, etc.
+  breed       String?
+  birthDate   DateTime?
+  weight      Float?
+  color       String?
+  sex         PetSex    @default(UNKNOWN)
+  notes       String?
+  photoUrl    String?
+  tutorId     String
+  tutor       Tutor     @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  updates     PetUpdate[]
+  files       PetFile[]
+  charges     Charge[]
+}
+
+enum PetSex {
+  MALE
+  FEMALE
+  UNKNOWN
+}
+
+// ─── Updates (Timeline) ────────────────────────────────
+model PetUpdate {
+  id          String       @id @default(cuid())
+  type        UpdateType
+  title       String
+  content     String?
+  visibleToTutor Boolean  @default(true)
+  petId       String
+  pet         Pet          @relation(fields: [petId], references: [id], onDelete: Cascade)
+  createdAt   DateTime     @default(now())
+}
+
+enum UpdateType {
+  EXAM_AVAILABLE
+  POST_SURGERY
+  ORIENTATION
+  CHARGE_ISSUED
+  PAYMENT_CONFIRMED
+  RETURN_RECOMMENDED
+  GENERAL
+}
+
+// ─── Files ─────────────────────────────────────────────
+model PetFile {
+  id          String    @id @default(cuid())
+  name        String
+  type        FileType
+  url         String
+  size        Int?
+  comment     String?
+  visibleToTutor Boolean @default(false)
+  petId       String
+  pet         Pet       @relation(fields: [petId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+}
+
+enum FileType {
+  PDF
+  IMAGE
+  RECIPE
+  REPORT
+  OTHER
+}
+
+// ─── Financeiro ────────────────────────────────────────
+model Charge {
+  id          String        @id @default(cuid())
+  description String
+  amount      Float
+  dueDate     DateTime?
+  status      ChargeStatus  @default(PENDING)
+  paymentLink String?
+  receiptUrl  String?
+  paidAt      DateTime?
+  petId       String
+  pet         Pet           @relation(fields: [petId], references: [id], onDelete: Cascade)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+enum ChargeStatus {
+  PENDING
+  PAID
+  CANCELLED
+  OVERDUE
+}
