@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { CLINIC, DOCTOR, WHATSAPP_LINKS } from "@/lib/constants";
 import { Phone, Calendar, Bath, ArrowRight } from "lucide-react";
 import Scheduler from "./Scheduler";
@@ -18,7 +19,7 @@ export default function Hero() {
     <>
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#001020]">
 
-        {/* Linha verde vertical — assinatura da marca */}
+        {/* Linha verde vertical */}
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-[#a8c941] to-transparent opacity-60" />
 
         {/* Gradiente direcional */}
@@ -31,42 +32,51 @@ export default function Hero() {
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-8 lg:px-12 py-28 lg:py-0 lg:min-h-screen flex items-center">
           <div className="grid lg:grid-cols-[1fr_420px] gap-16 xl:gap-24 items-center w-full">
 
-            {/* ── Esquerda: conteúdo ── */}
+            {/* ── Esquerda ── */}
             <div>
-              {/* Credencial */}
-              <div className="flex items-center gap-3 mb-10">
-                <div className="h-px w-8 bg-[#a8c941]" />
-                <span className="text-[#a8c941] text-xs font-bold uppercase tracking-[0.2em]">
-                  Piraí do Sul · PR · {DOCTOR.crmv}
-                </span>
+              <div className="hero-enter" style={{ animationDelay: "0.15s" }}>
+                <div className="flex items-center gap-3 mb-10">
+                  <div className="h-px w-8 bg-[#a8c941]" />
+                  <span className="text-[#a8c941] text-xs font-bold uppercase tracking-[0.2em]">
+                    Piraí do Sul · PR · {DOCTOR.crmv}
+                  </span>
+                </div>
               </div>
 
-              {/* Heading */}
-              <h1 className="text-[clamp(2.6rem,5.5vw,4.6rem)] font-bold text-white leading-[1.04] tracking-tight mb-6">
+              <h1
+                className="hero-enter text-[clamp(2.6rem,5.5vw,4.6rem)] font-bold text-white leading-[1.04] tracking-tight mb-6"
+                style={{ animationDelay: "0.3s" }}
+              >
                 Cuidado veterinário{" "}
                 <span className="block text-[#a8c941]">de alta complexidade.</span>
               </h1>
 
-              <p className="text-white/55 text-lg leading-relaxed mb-10 max-w-[520px]">
+              <p
+                className="hero-enter text-white/55 text-lg leading-relaxed mb-10 max-w-[520px]"
+                style={{ animationDelay: "0.45s" }}
+              >
                 Cirurgias especializadas, diagnóstico preciso e suporte contínuo.
                 Sob a direção do{" "}
                 <span className="text-white/80 font-medium">{DOCTOR.name}</span>.
               </p>
 
-              {/* CTAs principais */}
-              <div className="flex flex-wrap gap-3 mb-10">
+              {/* CTAs */}
+              <div
+                className="hero-enter flex flex-wrap gap-3 mb-10"
+                style={{ animationDelay: "0.6s" }}
+              >
                 <a
                   href={WHATSAPP_LINKS.schedule}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-4 bg-[#a8c941] hover:bg-[#bdd84e] text-[#001020] font-bold rounded-2xl transition-all text-sm tracking-wide shadow-[0_0_40px_rgba(168,201,65,0.25)] hover:shadow-[0_0_60px_rgba(168,201,65,0.4)]"
+                  className="inline-flex items-center gap-2.5 px-6 py-4 bg-[#a8c941] hover:bg-[#bdd84e] text-[#001020] font-bold rounded-2xl transition-all text-sm tracking-wide shadow-[0_0_40px_rgba(168,201,65,0.25)] hover:shadow-[0_0_60px_rgba(168,201,65,0.4)] hover:-translate-y-0.5 active:translate-y-0"
                 >
                   <Calendar size={17} />
                   Agendar Consulta
                 </a>
                 <button
                   onClick={() => openScheduler("banho-tosa")}
-                  className="inline-flex items-center gap-2.5 px-6 py-4 bg-white/[0.08] hover:bg-white/[0.14] text-white font-bold rounded-2xl transition-all text-sm border border-[#a8c941]/30 hover:border-[#a8c941]/60"
+                  className="inline-flex items-center gap-2.5 px-6 py-4 bg-white/[0.08] hover:bg-white/[0.14] text-white font-bold rounded-2xl transition-all text-sm border border-[#a8c941]/30 hover:border-[#a8c941]/60 hover:-translate-y-0.5 active:translate-y-0"
                 >
                   <Bath size={16} />
                   Banho/Tosa
@@ -91,7 +101,10 @@ export default function Hero() {
               </div>
 
               {/* Stats */}
-              <div className="flex items-center gap-8 pt-8 border-t border-white/[0.08]">
+              <div
+                className="hero-enter flex items-center gap-8 pt-8 border-t border-white/[0.08]"
+                style={{ animationDelay: "0.75s" }}
+              >
                 {[
                   { value: "Alta complexidade", label: "Cirurgias" },
                   { value: "Resultados rápidos", label: "Exames" },
@@ -105,8 +118,8 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* ── Direita: foto editorial ── */}
-            <div className="hidden lg:block relative">
+            {/* ── Direita: foto ── */}
+            <div className="hidden lg:block relative hero-enter-photo" style={{ animationDelay: "0.4s" }}>
               <div className="relative">
                 <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-b from-[#a8c941]/30 via-[#a8c941]/10 to-transparent" />
                 <div className="relative rounded-3xl overflow-hidden bg-[#001830] h-[540px]">

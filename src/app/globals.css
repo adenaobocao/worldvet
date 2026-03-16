@@ -21,6 +21,18 @@
     line-height: 1.2;
     font-weight: 700;
   }
+
+  /* Offset for fixed navbar when navigating via anchor links */
+  section[id] {
+    scroll-margin-top: 88px;
+  }
+
+  /* Focus visible */
+  *:focus-visible {
+    outline: 2px solid #a8c941;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
 }
 
 /* Scrollbar */
@@ -32,7 +44,64 @@
 /* Selection */
 ::selection { background-color: #a8c941; color: #001e2e; }
 
-/* Animations */
+/* ─── Scroll-triggered animations ─────────────────── */
+
+[data-anim] {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-anim]:not([data-anim="left"]):not([data-anim="right"]):not([data-anim="scale"]) {
+  transform: translateY(28px);
+}
+
+[data-anim="left"]  { transform: translateX(-28px); }
+[data-anim="right"] { transform: translateX(28px); }
+[data-anim="scale"] { transform: scale(0.96) translateY(12px); }
+
+[data-anim].anim-in {
+  opacity: 1;
+  transform: none !important;
+}
+
+/* Stagger delays */
+[data-delay="100"] { transition-delay: 100ms; }
+[data-delay="150"] { transition-delay: 150ms; }
+[data-delay="200"] { transition-delay: 200ms; }
+[data-delay="250"] { transition-delay: 250ms; }
+[data-delay="300"] { transition-delay: 300ms; }
+[data-delay="350"] { transition-delay: 350ms; }
+[data-delay="400"] { transition-delay: 400ms; }
+[data-delay="450"] { transition-delay: 450ms; }
+[data-delay="500"] { transition-delay: 500ms; }
+[data-delay="600"] { transition-delay: 600ms; }
+
+/* ─── Hero entry animations ─────────────────────────── */
+
+@keyframes heroSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-enter {
+  opacity: 0;
+  animation: heroSlideUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-enter-photo {
+  opacity: 0;
+  animation: heroFadeIn 1s ease forwards;
+}
+
+/* ─── Legacy animations ─────────────────────────────── */
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
@@ -58,12 +127,10 @@
 .animate-pulse-glow { animation: pulse-glow 2.5s infinite; }
 .animate-pulse-green { animation: pulse-green 2s infinite; }
 
-/* Delay utilities */
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
 
-/* Initially hidden for animation */
 .opacity-0-init { opacity: 0; }
