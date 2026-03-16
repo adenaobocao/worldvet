@@ -81,6 +81,13 @@ export default function Hero() {
                   Urgência
                   <ArrowRight size={13} />
                 </a>
+                <Link
+                  href="/tutor"
+                  className="inline-flex items-center gap-2 px-5 py-4 text-white/50 hover:text-white/80 font-medium text-sm transition-colors"
+                >
+                  Área do Tutor
+                  <ArrowRight size={13} />
+                </Link>
               </div>
 
               {/* Stats */}
