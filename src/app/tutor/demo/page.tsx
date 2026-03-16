@@ -63,7 +63,7 @@ export default function TutorDemoPage() {
               <ArrowLeft size={15} className="text-white" />
             </Link>
             <div className="w-7 h-10 relative flex-shrink-0">
-              <Image src="/logo.svg" alt="World Vet" fill className="object-contain" />
+              <Image src="/logo.svg" alt="World Vet" fill className="object-contain brightness-0 invert" />
             </div>
             <div>
               <p className="font-bold text-sm leading-none">World Vet</p>

@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-12 relative flex-shrink-0">
-                <Image src="/logo.svg" alt="World Vet" fill className="object-contain" />
+                <Image src="/logo.svg" alt="World Vet" fill className="object-contain brightness-0 invert" />
               </div>
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-4">

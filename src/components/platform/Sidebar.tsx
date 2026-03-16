@@ -35,7 +35,7 @@ export default function Sidebar() {
       {/* Brand */}
       <div className="flex items-center gap-3 px-6 py-5 border-b border-[#c6ccb0]/20">
         <div className="w-8 h-12 relative flex-shrink-0">
-          <Image src="/logo.svg" alt="World Vet" fill className="object-contain" />
+          <Image src="/logo.svg" alt="World Vet" fill className="object-contain brightness-0 invert" />
         </div>
         <div>
           <p className="font-bold text-white text-sm">World Vet</p>

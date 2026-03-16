@@ -36,7 +36,7 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <div className="w-16 h-24 relative mx-auto mb-4">
-            <Image src="/logo.svg" alt="World Vet" fill className="object-contain" />
+            <Image src="/logo.svg" alt="World Vet" fill className="object-contain brightness-0 invert" />
           </div>
           <h1 className="text-white font-bold text-2xl">World Vet</h1>
           <p className="text-white/50 text-sm">Acesso interno da clínica</p>

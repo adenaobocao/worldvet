@@ -38,7 +38,7 @@ export default function Navbar() {
           {/* Logo only — sem texto */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <div className="w-9 h-14 relative">
-              <Image src="/logo.svg" alt="World Vet" fill className="object-contain" priority />
+              <Image src="/logo.svg" alt="World Vet" fill className={`object-contain transition-all ${isScrolled ? "" : "brightness-0 invert"}`} priority />
             </div>
           </Link>
 
